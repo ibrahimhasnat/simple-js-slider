@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JS Slider</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		div {
+			width: 650px;
+			margin: 25px auto;
+			text-align: center;
+		}
+		div img {
+			display: block;
+			width: 100%;
+			background: #ddd;
+			padding: 5px;
+			border-radius: 3px;
+		}
+		div button {
+			display: inline-block;
+			margin-top: 10px;
+			padding: 5px 10px;
+			border: 0;
+			cursor: pointer;
+			background: #00CC9D;
+			color: #FFF;
+			border-radius: 3px;
+		}
+	</style>
+</head>
+<body>
+	
+	<div>
+		<img id="slide" src="slider-1.jpg" alt="Slide">
+		<button onclick="prev()">Prev</button>
+		<button onclick="next()">Next</button>
+	</div>
+
+	<script>
+		var images = [
+			'slider-1.jpg',
+			'slider-2.jpg',
+			'slider-3.jpg',
+			'slider-4.jpg',
+			'slider-5.jpg',
+		]
+
+		var num = 0;
+
+		function next() {
+			console.log("Next")
+			var slide = document.getElementById('slide')
+			num++
+			if( num >= images.length ) {
+				num = 0
+			}
+			slide.src = images[num]
+		}
+
+		function prev() {
+			var slide = document.getElementById('slide')
+			num--
+			if( num < 0 ) {
+				num = images.length-1
+			}
+			slide.src = images[num]
+		}
+
+	</script>
+
+</body>
+</html>
